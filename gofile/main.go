@@ -14,4 +14,4 @@ func main() {
     http.HandleFunc("/", helloHandler)
     fmt.Println("Server is running on port 8500...")
     log.Fatal(http.ListenAndServe(":8500", nil))
-    }
+}
