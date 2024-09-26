@@ -12,5 +12,6 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     http.HandleFunc("/", helloHandler)
-    fmt.Println("Server is running on port 7000...")
-    log.Fatal(http.ListenAndServe(":7000", nil))
+    fmt.Println("Server is running on port 8500...")
+    log.Fatal(http.ListenAndServe(":8500", nil))
+    }
