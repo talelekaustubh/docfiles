@@ -1,17 +1,23 @@
-# Use Golang base image
-FROM golang:1.19-alpine
+# Use an official Golang image as the base image
+FROM golang:1.20-alpine
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the Go application files
+# Copy the go.mod and go.sum files first to download dependencies
+COPY go.mod go.sum ./
+
+# Download Go modules
+RUN go mod download
+
+# Copy the rest of the application code into the container
 COPY . .
 
 # Build the Go application
-RUN go build -o goapp
+RUN go build -o goapp .
 
-# Expose the port
+# Expose the port the app will run on
 EXPOSE 8500
 
-# Command to run the app
+# Command to run the application
 CMD ["./goapp"]
