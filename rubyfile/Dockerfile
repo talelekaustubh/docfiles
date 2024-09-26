@@ -1,3 +1,4 @@
+
 # Use an official Ruby image as the base image
 FROM ruby:3.2-alpine
 
@@ -8,10 +9,10 @@ RUN apk add --no-cache build-base
 WORKDIR /app
 
 # Copy the Gemfile and install gems
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
 RUN bundle install
 
-# Copy the application code
+# Copy the rest of the application code into the container
 COPY . .
 
 # Expose the port the app will run on
