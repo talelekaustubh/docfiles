@@ -4,8 +4,8 @@ FROM golang:1.20-alpine
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the go.mod and go.sum files first to download dependencies
-COPY go.mod go.sum ./
+# Copy the go.mod file
+COPY go.mod ./
 
 # Download Go modules
 RUN go mod download
